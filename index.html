@@ -110,11 +110,11 @@
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.9rem;
+      /* font-size: 0.9rem; */
       font-weight: 500;
       transition: all 0.3s ease;
       position: relative;
-      padding: 0.5rem 0;
+      /* padding: 0.5rem 0; */
     }
 
     .nav-links a::after {
@@ -137,15 +137,16 @@
     .nav-cta {
       background: var(--accent);
       color: white !important;
-      padding: 0.7rem 2rem;
+      padding: 0.5rem 1.5rem;
       border-radius: 2rem;
-      font-weight: 600 !important;
+      font-weight: 500 !important;
       transition: all 0.3s var(--ease-out-back) !important;
       box-shadow: 0 4px 15px rgba(99,102,241,0.3);
       position: relative;
       overflow: hidden;
       display: inline-block;
       animation: pulse 2s infinite;
+      font-size: 0.8rem;
     }
 
     @keyframes pulse {
@@ -235,7 +236,7 @@
     h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 2rem;
@@ -1259,7 +1260,7 @@
       <li><a href="#servicios" target="_self">Servicios</a></li>
       <li><a href="#proyectos" target="_self">Proyectos</a></li>
       <li><a href="#blog" target="_self">Blog</a></li>
-      <li><a href="#contacto" class="nav-cta" target="_self" style="padding: 0.7rem 2.5rem;">Contacto</a></li>
+      <li><a href="#contacto" class="nav-cta" target="_self">Contacto</a></li>
     </ul>
   </nav>
 
@@ -1267,7 +1268,7 @@
   <section id="inicio">
     <div class="hero-content">
       <div class="hero-tag"><span class="dot"></span> Disponible para nuevos proyectos</div>
-      <h1>Desarrollador<br><em>&</em> Diseñador<br>Web.</h1>
+      <h1>Desarrollador<br><em>&amp;</em> Diseñador<br>Web.</h1>
       <p class="hero-desc">
         Creo experiencias web modernas, funcionales y con diseño impecable. Transformo ideas en realidad digital.
       </p>
@@ -1424,7 +1425,7 @@
   <!-- BLOG -->
   <section id="blog">
     <div class="section-label reveal">Blog</div>
-    <h2 class="reveal reveal-delay-1">Artículos &<br>recursos.</h2>
+    <h2 class="reveal reveal-delay-1">Artículos &amp;<br>recursos.</h2>
     <div class="blog-grid">
       <a href="#" class="blog-card reveal reveal-delay-1" target="_blank" rel="noopener">
         <div class="blog-thumb">✍️</div>
