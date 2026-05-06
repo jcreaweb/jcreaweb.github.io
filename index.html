@@ -1151,14 +1151,72 @@ body {
       gap: 1rem;
     }
 
-    /* ── CONTACT ── */
+/* ── CONTACT ── */
     #contacto {
       background: var(--card);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
-      align-items: start;
+      align-items: center;
       position: relative;
+    }
+
+    .contact-info h2 { margin-bottom: 2rem; }
+
+    .contact-info p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .contact-link:hover {
+      gap: 1.2rem;
+      background: var(--accent);
+      color: white;
+      transform: translateX(8px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-link:hover .contact-link-icon {
+      background: white;
+      color: var(--accent);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact-link-icon {
+      width: 3rem; height: 3rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      font-weight: 600;
     }
 
     #contacto::before {
@@ -1316,30 +1374,30 @@ body {
 
     /* ── FOOTER ── */
     footer {
-      padding: 2rem 4rem;
+      padding: 3rem 4rem;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--bg);
+      background: var(--card);
     }
 
     footer p {
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       color: var(--muted);
     }
 
     .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
       color: var(--ink);
       text-decoration: none;
-      transition: opacity 0.3s;
+      transition: color 0.3s ease;
     }
 
     .footer-logo:hover {
-      opacity: 0.7;
+      color: var(--accent);
     }
 
     /* ── ANIMATIONS ── */
@@ -1368,112 +1426,136 @@ body {
       animation: fadeUp 1s var(--ease-out-expo) 0.3s forwards;
     }
 
-    /* ── CUSTOM CURSOR (desktop only) ── */
-    @media (hover: hover) and (pointer: fine) {
-      .cursor-dot,
-      .cursor-outline {
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        z-index: 9999;
-        pointer-events: none;
-      }
+    
 
-      .cursor-dot {
-        width: 6px;
-        height: 6px;
-        background: var(--ink);
-      }
+    /* ── WHATSAPP FLOATING BUTTON ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--accent);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-size: 1.5rem;
+    }
 
-      .cursor-outline {
-        width: 32px;
-        height: 32px;
-        border: 1.5px solid var(--ink);
-        opacity: 0.5;
-        transition: width 0.3s, height 0.3s, opacity 0.3s, border-color 0.3s;
-      }
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-4px);
+      box-shadow: 0 8px 30px rgba(99,102,241,0.6);
+      background: var(--accent2);
+    }
 
-      body:hover .cursor-outline {
-        opacity: 0.3;
-      }
+    .whatsapp-text {
+      position: absolute;
+      right: 80px;
+      background: var(--ink);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      box-shadow: var(--shadow-lg);
+    }
 
-      a:hover ~ .cursor-outline,
-      button:hover ~ .cursor-outline,
-      .project-card:hover ~ .cursor-outline,
-      .service-card:hover ~ .cursor-outline,
-      .blog-card:hover ~ .cursor-outline {
-        width: 48px;
-        height: 48px;
-        opacity: 0.15;
-        border-color: var(--accent);
-        background: rgba(200,241,53,0.05);
-      }
+    .whatsapp-float:hover .whatsapp-text {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .cursor-dot, .cursor-outline { display: none; }
 
-      nav { padding: 1rem 1.5rem; }
-      nav.scrolled { padding: 0.8rem 1.5rem; }
-      .nav-links { display: none; }
+      nav { padding: 1rem 2rem; }
+      nav.scrolled { padding: 0.8rem 2rem; }
+      .nav-links { gap: 1.5rem; }
 
       #inicio {
         grid-template-columns: 1fr;
-        padding: 7rem 1.5rem 3rem;
+        padding: 7rem 2rem 3rem;
+        gap: 3rem;
       }
 
-      .hero-visual { height: 320px; }
+      .hero-visual { height: 400px; }
       .hero-card { width: 100%; }
 
       #sobre-mi,
       #contacto {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 4rem 1.5rem;
+        gap: 4rem;
+        padding: 5rem 2rem;
       }
 
       .services-grid,
       .projects-grid,
       .blog-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
       .project-card:first-child { grid-column: auto; }
 
-      section { padding: 4rem 1.5rem; }
+      section { padding: 5rem 2rem; }
       footer { 
         flex-direction: column; 
-        gap: 0.5rem; 
+        gap: 1rem; 
         text-align: center; 
-        padding: 1.5rem; 
+        padding: 2rem; 
+      }
+
+      .whatsapp-float {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
       }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
-      h2 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+      h1 { font-size: clamp(2rem, 12vw, 3rem); }
+      h2 { font-size: clamp(1.5rem, 10vw, 2rem); }
       
       .hero-actions {
         flex-direction: column;
         width: 100%;
+        gap: 1rem;
       }
       
       .btn-primary, .btn-secondary {
         width: 100%;
         text-align: center;
+        padding: 0.8rem 2rem;
+      }
+
+      .nav-links { gap: 1rem; font-size: 0.8rem; }
+      
+      .section-label { font-size: 0.7rem; }
+      
+      .contact-links { gap: 1rem; }
+      
+      .whatsapp-text {
+        display: none;
       }
     }
   </style>
 <base target="_blank">
 </head>
 <body>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
 
   <!-- NAV -->
   <nav>
@@ -1718,6 +1800,12 @@ body {
     <p><a href="https://creaweb.dev" style="color:var(--muted);text-decoration:none;">creaweb.dev</a></p>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/34600000000" class="whatsapp-float" target="_blank" rel="noopener">
+    <div class="whatsapp-icon">💬</div>
+    <div class="whatsapp-text">Contactar</div>
+  </a>
+
   <script>
     // Scroll reveal with Intersection Observer
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1752,44 +1840,7 @@ body {
       lastScroll = currentScroll;
     });
 
-    // Custom cursor (desktop only)
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
 
-    if (cursorDot && cursorOutline && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      let mouseX = 0, mouseY = 0;
-      let outlineX = 0, outlineY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
-      });
-
-      function animateCursor() {
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
-        
-        cursorOutline.style.left = `${outlineX}px`;
-        cursorOutline.style.top = `${outlineY}px`;
-        
-        requestAnimationFrame(animateCursor);
-      }
-      animateCursor();
-
-      // Hide cursor when leaving window
-      document.addEventListener('mouseleave', () => {
-        cursorDot.style.opacity = '0';
-        cursorOutline.style.opacity = '0';
-      });
-
-      document.addEventListener('mouseenter', () => {
-        cursorDot.style.opacity = '1';
-        cursorOutline.style.opacity = '0.5';
-      });
-    }
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
