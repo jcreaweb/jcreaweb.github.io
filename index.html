@@ -376,9 +376,30 @@
       animation: rotate 20s linear infinite;
     }
 
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .hero-card {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
     }
 
     .hero-card-label {
@@ -395,7 +416,7 @@
     .hero-card-name {
       font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: 3rem;
+      font-size: 2.5rem;
       line-height: 1.1;
       margin-bottom: 1rem;
       position: relative;
@@ -403,8 +424,8 @@
     }
 
     .hero-card-role {
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
       opacity: 0.9;
       position: relative;
       z-index: 1;
@@ -413,7 +434,7 @@
     .hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
       width: 100%;
       position: relative;
       z-index: 1;
@@ -422,7 +443,7 @@
     .stat-item {
       background: rgba(255,255,255,0.1);
       border-radius: 1rem;
-      padding: 1.5rem;
+      padding: 1.2rem;
       backdrop-filter: blur(10px);
       transition: all 0.4s var(--ease-out-back);
       cursor: pointer;
@@ -437,7 +458,7 @@
     .stat-num {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: white;
       line-height: 1;
       transition: transform 0.4s var(--ease-out-back);
@@ -458,14 +479,14 @@
 
     .hero-badge {
       position: absolute;
-      bottom: 2rem;
-      right: 2rem;
+      bottom: 1.5rem;
+      right: 1.5rem;
       background: white;
       color: var(--accent);
       border-radius: 2rem;
-      padding: 0.8rem 1.5rem;
+      padding: 0.7rem 1.2rem;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       box-shadow: var(--shadow-lg);
       transition: all 0.4s var(--ease-out-back);
       z-index: 10;
@@ -1286,8 +1307,8 @@
         gap: 3rem;
       }
 
-      .hero-visual { height: 400px; }
-      .hero-card { width: 100%; }
+      .hero-visual { height: 350px; }
+      .hero-card { width: 100%; padding: 1.5rem; }
 
       #sobre-mi {
         grid-template-columns: 1fr;
@@ -1345,6 +1366,10 @@
       .whatsapp-text { display: none; }
       .projects-footer { margin-top: 2rem; }
       .projects-footer-text { font-size: 1rem; }
+
+      .hero-card-name { font-size: 2rem; }
+      .hero-card-role { font-size: 0.9rem; margin-bottom: 1.5rem; }
+      .hero-badge { bottom: 1rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.7rem; }
     }
   </style>
 </head>
